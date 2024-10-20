@@ -29,7 +29,7 @@ class MyCartViewBody extends StatelessWidget {
           ),
           const OrderInfoItem(
             title: 'Order Subtotal',
-            value: r'42.97$',
+            value: r'92$',
           ),
           const SizedBox(
             height: 3,
@@ -50,7 +50,7 @@ class MyCartViewBody extends StatelessWidget {
             height: 34,
             color: Color(0xffC7C7C7),
           ),
-          const TotalPrice(title: 'Total', value: r'$50.97'),
+          const TotalPrice(title: 'Total', value: r'$100'),
           const SizedBox(
             height: 16,
           ),

@@ -13,14 +13,22 @@ import 'package:checkout_payment_ui/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '../../../../../core/utils/api_Keys.dart';
+import '../../../../../paymob_manager/home_screen.dart';
+import '../../../../../paymob_manager/paymob_manager.dart';
 
 class CustomButtonBlocConsumer extends StatelessWidget {
   const CustomButtonBlocConsumer({
     super.key,
     required this.isPaypal,
+    required this.isStripe,
+
   });
 
   final bool isPaypal;
+  final bool isStripe;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<PaymentCubit, PaymentState>(
@@ -44,8 +52,11 @@ class CustomButtonBlocConsumer extends StatelessWidget {
               if (isPaypal) {
                 var transctionsData = getTransctionsData();
                 exceutePaypalPayment(context, transctionsData);
-              } else {
+              } else if(isStripe) {
                 excuteStripePayment(context);
+
+              }else{
+                _pay();
               }
             },
             isLoading: state is PaymentLoading ? true : false,
@@ -115,4 +126,14 @@ class CustomButtonBlocConsumer extends StatelessWidget {
       ),
     ));
   }
+}
+Future<void> _pay() async{
+  PaymobManager().getPaymentKey(
+      100,"EGP"
+  ).then((String paymentKey) {
+    launchUrl(
+      Uri.parse("https://accept.paymob.com/api/acceptance/iframes/875513?payment_token=$paymentKey"),
+    );
+  });
+
 }

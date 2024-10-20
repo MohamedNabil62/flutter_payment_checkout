@@ -40,14 +40,14 @@ class ThankYouCard extends StatelessWidget {
             ),
             const PaymentItemInfo(
               title: 'Date',
-              value: '01/24/2023',
+              value: '19/10/2024',
             ),
             const SizedBox(
               height: 20,
             ),
             const PaymentItemInfo(
               title: 'Time',
-              value: '10:15 AM',
+              value: '2:15 PM',
             ),
             const SizedBox(
               height: 20,
@@ -60,7 +60,7 @@ class ThankYouCard extends StatelessWidget {
               height: 60,
               thickness: 2,
             ),
-            const TotalPrice(title: 'Total', value: r'$50.97'),
+            const TotalPrice(title: 'Total', value: r'$100'),
             const SizedBox(
               height: 30,
             ),
