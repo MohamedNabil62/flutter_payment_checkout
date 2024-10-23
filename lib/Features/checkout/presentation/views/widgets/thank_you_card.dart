@@ -5,6 +5,7 @@ import 'package:checkout_payment_ui/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl/intl.dart';
 
 class ThankYouCard extends StatelessWidget {
   const ThankYouCard({
@@ -13,6 +14,13 @@ class ThankYouCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
+
+    // Format time
+    String formattedTime = DateFormat('h:mm a').format(now);
+
+    // Format date
+    String formattedDate = DateFormat('dd/MM/yyyy').format(now);
     return Container(
       width: double.infinity,
       decoration: ShapeDecoration(
@@ -38,16 +46,16 @@ class ThankYouCard extends StatelessWidget {
             const SizedBox(
               height: 42,
             ),
-            const PaymentItemInfo(
+            PaymentItemInfo(
               title: 'Date',
-              value: '19/10/2024',
+              value: formattedDate,
             ),
             const SizedBox(
               height: 20,
             ),
-            const PaymentItemInfo(
+            PaymentItemInfo(
               title: 'Time',
-              value: '2:15 PM',
+              value: formattedTime,
             ),
             const SizedBox(
               height: 20,
