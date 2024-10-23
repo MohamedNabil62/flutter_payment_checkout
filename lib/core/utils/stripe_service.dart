@@ -33,7 +33,7 @@ class StripeService {
         customerEphemeralKeySecret:
             initiPaymentSheetInputModel.ephemeralKeySecret,
         customerId: initiPaymentSheetInputModel.customerId,
-        merchantDisplayName: 'tharwat',
+        merchantDisplayName: 'mohamed',
       ),
     );
   }

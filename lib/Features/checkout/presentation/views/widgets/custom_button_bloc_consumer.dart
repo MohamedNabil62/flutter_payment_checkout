@@ -67,9 +67,9 @@ class CustomButtonBlocConsumer extends StatelessWidget {
 
   void excuteStripePayment(BuildContext context) {
     PaymentIntentInputModel paymentIntentInputModel = PaymentIntentInputModel(
-      amount: '100',
+      amount: '10000',
       currency: 'USD',
-      cusomerId: 'cus_Onu3Wcrzhehlez',
+      cusomerId: 'cus_R4s2pXZEWVVDls',
     );
     BlocProvider.of<PaymentCubit>(context)
         .makePayment(paymentIntentInputModel: paymentIntentInputModel);

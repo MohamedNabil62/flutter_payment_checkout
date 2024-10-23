@@ -8,7 +8,7 @@ class PaymentIntentInputModel {
 
   toJson() {
     return {
-      'amount': '${amount}00',
+      'amount': amount, //amount * 100
       'currency': currency,
       'customer': cusomerId
     };
